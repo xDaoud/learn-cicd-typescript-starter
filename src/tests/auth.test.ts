@@ -1,20 +1,18 @@
 import { describe, expect, test } from "vitest";
 import { getAPIKey } from "../api/auth";
 const auth1 = {
-    authorization: "ApiKey abc123xyz",
+  authorization: "ApiKey abc123xyz",
 };
 
 const auth2 = {
-    authorization: "ApiKey",
+  authorization: "ApiKey",
 };
 
 const auth3 = {
-    authorization: "NotApiKey abc123xyz",
+  authorization: "NotApiKey abc123xyz",
 };
 
 const auth4 = {};
-
-
 
 describe("getApiKey auth.ts", () => {
   test("True authorization property", () => {
@@ -30,6 +28,6 @@ describe("getApiKey auth.ts", () => {
   });
 
   test("missing authorization header", () => {
-  expect(getAPIKey(auth4)).toBe(null);
-});
+    expect(getAPIKey(auth4)).toBe(null);
+  });
 });
