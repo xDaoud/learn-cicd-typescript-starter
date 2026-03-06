@@ -12,6 +12,10 @@ const auth3 = {
     authorization: "NotApiKey abc123xyz",
 };
 
+const auth4 = {};
+
+
+
 describe("getApiKey auth.ts", () => {
   test("True authorization property", () => {
     expect(getAPIKey(auth1)).toBe("abc123xyz");
@@ -24,4 +28,8 @@ describe("getApiKey auth.ts", () => {
   test("wrong label", () => {
     expect(getAPIKey(auth3)).toBeFalsy();
   });
+
+  test("missing authorization header", () => {
+  expect(getAPIKey(auth4)).toBe(null);
+});
 });
